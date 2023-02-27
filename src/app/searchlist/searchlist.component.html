@@ -1,0 +1,45 @@
+<!-- <p>{{apidata['Title']}}</p> -->
+<!-- <p>{{apidata | json}}</p> -->
+    <div  *ngIf="checkifresponse()=='true'">
+
+        <!-- {{apidata.Search}} -->
+       
+            <button *ngIf="pagenumber!='1'"  (click)="back()"><</button>
+            <button  (click)="next()">></button>
+        
+        
+        <ul>
+            
+                <div  id="lists" *ngFor="let item of apidata.Search">
+                    
+                    <div class="center" >
+                        <img style="cursor: pointer;" routerLink="{{'../../../movieresult/'+item.imdbID}}" [src]="replaceimagePoster(item.Poster)" > 
+                       <br>
+                        {{item.Title}}
+                        <hr>
+                    </div>
+                
+            
+                
+            
+                </div>  
+    
+        
+    </ul>
+
+        
+</div>
+<div *ngIf="checkifresponse()=='false'">
+    <div *ngIf="pagenumber=='1'">  <h1>OOPS</h1>
+            <hr>
+        No Movies found with similar text Please try again </div>
+        <div *ngIf="pagenumber!='1'"> 
+            <button (click)="back()"><</button>
+             <h1>Please Go Back
+
+             </h1>
+            <hr>
+           End of Results
+        </div> 
+   
+</div>
