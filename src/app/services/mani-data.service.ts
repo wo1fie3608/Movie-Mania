@@ -5,7 +5,7 @@ import {HttpClient } from '@angular/common/http';
 })
 export class ManiDataService {
   constructor(private http:HttpClient) { }
-  users(data:string){ // return search by text 
+  users(data:string){ // Return search by text 
     return this.http.get('https://www.omdbapi.com/?s='+data+'&apikey=b01dfa6f')
   }
   users1(data:string){ // return search by index
