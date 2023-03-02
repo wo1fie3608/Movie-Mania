@@ -11,3 +11,9 @@
     align-content: center;
 
 }
+button{
+    cursor: pointer;
+}
+body{
+    background-color: whitesmoke;
+}

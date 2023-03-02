@@ -1,0 +1,16 @@
+<div class="layout">
+    <div class="wrapper">
+        <h1>Bookmarks</h1>
+        <div class="layout__scroll">
+            <div *ngFor="let item of databookmark" class="card">
+                <a routerLink="../movieresult" [queryParams]="{movieid:item.imdbID}"><img src="{{item.Poster}}" /></a>
+                <div class="card-content">
+                    <h4>{{item.Title}}</h4>
+                    <p>{{item.Plot}}</p>
+                    <hr>
+                    <button (click)="remove(item.imdbID)">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

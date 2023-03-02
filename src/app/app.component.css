@@ -1,0 +1,160 @@
+/* 
+header img {
+    height: 80px;
+    margin-left: 40px;
+}
+
+#router{
+    height: 70%;
+    font-family: sans-serif;
+    margin-top: 80px;
+    padding: 30px;
+    background-color:rgb(255, 255, 255);
+}
+nav{
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    background-color: rgb(38, 38, 38);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 0 25px 0 black;
+    z-index: 9999;
+}
+
+header * {
+    display: inline-block;
+
+}
+
+header li {
+    
+    margin: 20px;
+
+
+}
+
+header li a {
+    color: black;
+    text-decoration: none;
+    border: 1px solid rgb(199, 192, 192);
+    width: 150px;
+    background-color: antiquewhite;
+    border-radius: 20px;
+    border: solid 1px black;;
+    text-align: center;
+    height: 40px;
+line-height: 40px;
+}
+header li a:hover {
+    background-color: rgb(169, 137, 137);
+    cursor: pointer;
+
+}
+input{
+    width: 500px;
+    height: 40px;
+    text-align: center;
+}
+input::placeholder{
+      text-align: center;
+}
+button{
+    border-radius: 20px;
+    background-color: antiquewhite;
+    height: 40px;
+    width: 150px;
+}
+button:hover{
+    background-color: rgb(169, 137, 137);
+    cursor: pointer;
+
+} */
+
+#navbar{
+    display: flex;
+    background-color: #b45d5d;
+    justify-content: space-between;
+    align-items: center;
+    height:50px;
+    
+}
+#navbar a{
+    color: #fde405;
+}
+
+#HB{
+    display: flex;
+    justify-content: end;
+    width: 55%;
+    font-size: x-large;
+    height: 50px;
+    align-items: center;
+   
+}
+a{
+    text-decoration: none;
+    margin: auto 0px auto 30px;
+
+}
+#HB a:hover{
+    color:rgb(168, 173, 5);
+   
+}
+#search{
+display: flex;
+   width: 35%;
+}
+#search input{
+    width: 300px;
+   text-align: left;
+   margin-right: 4px;
+   height: 29px;
+   width: 350px;
+ padding-left: 2rem;
+}
+#search a{
+
+    font-size: x-large;
+    height: 50px;
+    align-items: center;
+    margin-left: 2px;
+    cursor: pointer;
+   color:#ffe600;
+
+}
+#search a:hover{
+
+   color:rgb(192, 201, 8);
+ 
+}
+
+#search input::placeholder{
+    text-align: center;
+}
+li{
+    list-style-type:none;
+}
+@import url(
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+.form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 1.7rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+button{
+    cursor: pointer;
+}

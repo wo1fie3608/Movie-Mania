@@ -7,19 +7,29 @@ import { HomeComponent } from './home/home.component';
 import { SearchlistComponent } from './searchlist/searchlist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviedescComponent } from './moviedesc/moviedesc.component';
-import {NgxPaginationModule} from 'ngx-pagination'
+import {NgxPaginationModule} from 'ngx-pagination';
+import { Page404Component } from './page404/page404.component'
+import { NgHttpLoaderModule } from 'ng-http-loader';
+import { BookmarksComponent } from './bookmarks/bookmarks.component';
+import { PaginationComponent } from './pagination/pagination.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SearchlistComponent,
-    MoviedescComponent
+    MoviedescComponent,
+    Page404Component,
+    BookmarksComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+   NgHttpLoaderModule.forRoot(),
+   NgxSkeletonLoaderModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

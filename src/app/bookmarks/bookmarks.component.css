@@ -1,0 +1,39 @@
+.layout{
+    display: flex;
+    flex-direction: column;
+}
+.layout__scroll{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1.5rem;
+    flex: 1;
+    overflow: auto;
+}
+h1{
+    text-align: center;
+}
+img{
+    height: 350px;
+    cursor: pointer;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background: #fff;
+    font-size: .875rem;
+    box-shadow: -1px 1px 4px rgb(117 138 172 / 12%);
+    position: relative;
+    overflow: hidden;
+}
+.card-content{
+    padding: 1rem;
+}
+.wrapper{
+    max-width: 1100px;
+    padding: 0 1rem;
+    margin: 0 auto;
+}
+button{
+    cursor: pointer;
+}

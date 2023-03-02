@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AppComponent } from '../app.component';
+import { ManiDataService } from '../services/mani-data.service';
+import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,11 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  // ele:any =  document.querySelector('body');
-    constructor(){
-      
-      // this.ele.classList.add('home-route')
-    }
-    ngOnInit() {}
-  
+  ngOnInit() {
+    let video: any = document.querySelector('video');
+    video.defaultPlaybackRate = 10.0;
+    video.load()
+  }
 }

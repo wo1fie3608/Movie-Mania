@@ -3,3 +3,9 @@ h1{
     align-items: center;
     text-align: center;
 }
+button{
+    cursor: pointer;
+}
+h1{
+    color:#00c2e9
+}

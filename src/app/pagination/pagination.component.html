@@ -1,0 +1,10 @@
+<div class="container">
+    <button class="child" [disabled]="pagenumber == 1" (click)="goToPage.emit(1)">First</button>
+    <button class="child" [disabled]="pagenumber ==1" (click)="back.emit()">Prev</button>
+    <button class="child" [disabled]="pagenumber==page" *ngFor="let page of pages" 
+            [class.active]="page == pagenumber"
+            (click)="goToPage.emit(page)">{{page}}
+    </button>
+    <button class="child" [disabled]="pagenumber == nopages " (click)="next.emit()">Next</button>
+    <button class="child" [disabled]="pagenumber == nopages" (click)="goToPage.emit(nopages)">Last</button>
+</div>
