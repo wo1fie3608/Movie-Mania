@@ -2,14 +2,14 @@
     <ngx-skeleton-loader count="25"></ngx-skeleton-loader>
 </ng-container>
 <ng-template #loadedtemplate>
-    <h1 class="title">{{apidata.Title}}</h1>
+    <h1 class="title">{{apidata.title}}</h1>
     <br>
-    <div id="center"> <img [src]="replaceimagePoster(apidata.Poster)"> </div>
+    <div id="center"> <img [src]="replaceImagePoster(apidata.poster)"> </div>
     <div style="text-align: center; "><button style="height: 30px; width: 125px; cursor: pointer; "
             (click)="bookmark()">bookmark</button></div>
-    <p><strong>Plot:</strong>{{apidata.Plot}}</p>
+    <p><strong>Plot:</strong>{{apidata.plot}}</p>
     <hr>
     <p><strong>IMDB Rating:</strong>{{apidata.imdbRating}}</p>
     <hr>
-    <p><strong>Genre:</strong>{{apidata.Genre}}</p>
+    <p><strong>Genre:</strong>{{apidata.genre}}</p>
 </ng-template>

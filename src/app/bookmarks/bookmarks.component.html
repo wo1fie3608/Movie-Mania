@@ -3,12 +3,12 @@
         <h1>Bookmarks</h1>
         <div class="layout__scroll">
             <div *ngFor="let item of databookmark" class="card">
-                <a routerLink="../movieresult" [queryParams]="{movieid:item.imdbID}"><img src="{{item.Poster}}" /></a>
+                <a routerLink="../movieresult" [queryParams]="{movieid:item.imdbId}"><img src="{{item.poster}}" /></a>
                 <div class="card-content">
-                    <h4>{{item.Title}}</h4>
-                    <p>{{item.Plot}}</p>
+                    <h4>{{item.title}}</h4>
+                    <p>{{item.plot}}</p>
                     <hr>
-                    <button (click)="remove(item.imdbID)">Remove</button>
+                    <button (click)="remove(item.imdbId)">Remove</button>
                 </div>
             </div>
         </div>

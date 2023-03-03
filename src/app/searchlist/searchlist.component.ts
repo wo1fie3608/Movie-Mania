@@ -9,8 +9,6 @@ import { __param } from 'tslib';
   styleUrls: ['./searchlist.component.css']
 })
 export class SearchlistComponent{
-  apiserve:any;
-  router:any;
   apidata:any;
   searchtext:any;
   pagenumber:number =0;
@@ -19,21 +17,19 @@ export class SearchlistComponent{
   nopages: number= 0;
   dataloaded: boolean= false;
   checkifresponse:string='empty';
-  constructor (private apiData:ManiDataService, private route: ActivatedRoute,private rrouter:Router){
-    this.apiserve=apiData;
-    this.router=route;
-    this.router.queryParams.subscribe(
+  constructor (private apiserve:ManiDataService, private route: ActivatedRoute,private router:Router){
+    this.route.queryParams.subscribe(
       (params:any) => {
-        this.checkifresponse='empty';
+      this.checkifresponse='empty';
       this.searchtext=params.search;
       this.pagenumber=params.page;
-      this.apiserve.users(this.searchtext+'&page='+this.pagenumber).subscribe((data:any) => {
-        this.apidata=data;
+      this.apiserve.searchByText(this.searchtext+'&page='+this.pagenumber).subscribe((data:any) => {
+        this.apidata=this.apiserve.setMoviesForClient(data);
         let temp= Number(data.totalResults);
         temp+=9;
         temp=Math.floor(temp/10);
         this.nopages=temp;
-        if(this.apidata['Response']=='True'){
+        if(this.apidata['response']=='True'){
             this.checkifresponse='yes';
         }
         else{
@@ -53,12 +49,12 @@ export class SearchlistComponent{
   back(){
     let n= Number(this.pagenumber);
     n--;
-    this.rrouter.navigate(["searchlist"], { queryParams:{search:this.searchtext,page:n}});
+    this.router.navigate(["searchlist"], { queryParams:{search:this.searchtext,page:n}});
   }
   next(){ 
     let n= Number(this.pagenumber);
     n++;
-    this.rrouter.navigate(["searchlist"], { queryParams:{search:this.searchtext,page:n}});
+    this.router.navigate(["searchlist"], { queryParams:{search:this.searchtext,page:n}});
 
   }
   nextValid(n:any){
@@ -68,7 +64,7 @@ export class SearchlistComponent{
     return 'false';
   }
   goToPage(n:any){
-    this.rrouter.navigate(["searchlist"], { queryParams:{search:this.searchtext,page:n}});
+    this.router.navigate(["searchlist"], { queryParams:{search:this.searchtext,page:n}});
   }
 }
   

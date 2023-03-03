@@ -92,7 +92,7 @@ button:hover{
 
 #HB{
     display: flex;
-    justify-content: end;
+    /* justify-content: end; */
     width: 55%;
     font-size: x-large;
     height: 50px;

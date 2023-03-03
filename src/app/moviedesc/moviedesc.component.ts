@@ -15,21 +15,24 @@ export class MoviedescComponent {
     this.route.queryParams.subscribe(params => {
       this.dataloaded = 'no';
       this.movieid = params['movieid'];
-      this.apidata = this.dataService.users1(this.movieid);
-      this.dataService.users1(this.movieid).subscribe((data: any) => {
+      this.dataService.searchByIndex(this.movieid).subscribe((data: any) => {
         this.dataloaded = 'yes';
-        this.apidata = data
-        if (this.apidata.Plot == "N/A") this.apidata.Plot = "Plot not available";
-        this.titleService.setTitle(this.apidata.Title);
+        this.apidata = this.dataService.setMovieDetailForClient(data);
+        this.handleNA();
+        this.titleService.setTitle(this.apidata.title);
       });
     }
     )
   }
-  replaceimagePoster(url: any) {
+  replaceImagePoster(url: any) {
     if (url == "N/A") {
       return 'https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101028/112815904-no-image-available-icon-flat-vector-illustration.jpg?ver=6'
     }
     else return url;
+  }
+  handleNA(){
+    if (this.apidata.plot == "N/A") this.apidata.plot = "Plot not available";
+    this.apidata.poster=this.replaceImagePoster(this.apidata.poster);
   }
   bookmark() {
     localStorage.setItem(this.movieid, this.movieid);

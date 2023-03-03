@@ -4,10 +4,10 @@
 <ng-template #loadedtemplate>
     <div *ngIf="checkifresponse=='yes'">
         <div class="w">
-            <div class="card" *ngFor="let item of apidata.Search">
+            <div class="card" *ngFor="let item of apidata.results">
                 <img id="lists" style="cursor: pointer;" [routerLink]="'../movieresult'"
-                    [queryParams]="{'movieid':item.imdbID}" [src]="replaceimagePoster(item.Poster)">
-                <h4>{{item.Title}}</h4>
+                    [queryParams]="{'movieid':item.imdbId}" [src]="replaceimagePoster(item.poster)">
+                <h4>{{item.title}}</h4>
             </div>
         </div>
         <app-pagination [pagenumber]="pagenumber" [nopages]="nopages" (back)="back()" (next)="next()"
