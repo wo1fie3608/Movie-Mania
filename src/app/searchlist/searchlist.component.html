@@ -1,6 +1,7 @@
 <ng-container *ngIf="checkifresponse=='empty';else loadedtemplate">
-    <ngx-skeleton-loader count="25"></ngx-skeleton-loader>
+    <app-moviesloader count="25"></app-moviesloader>
 </ng-container>
+
 <ng-template #loadedtemplate>
     <div *ngIf="checkifresponse=='yes'">
         <div class="w">
@@ -8,6 +9,8 @@
                 <img id="lists" style="cursor: pointer;" [routerLink]="'../movieresult'"
                     [queryParams]="{'movieid':item.imdbId}" [src]="replaceimagePoster(item.poster)">
                 <h4>{{item.title}}</h4>
+             
+                <h4><button  id="bookmarkbutton" [disabled]="bookmarkdata[item.imdbId]" (click)="bookmark(item.imdbId)" >Bookmark</button></h4>
             </div>
         </div>
         <app-pagination [pagenumber]="pagenumber" [nopages]="nopages" (back)="back()" (next)="next()"
@@ -20,11 +23,12 @@
             No Movies found with similar text Please try again
         </div>
         <div *ngIf="pagenumber!=1">
-            <button (click)="back()"> < </button>
             <h1>Please Go Back
             </h1>
             <hr>
             End of Results
+            <hr>
+            Go to <button (click)="goToPage(1)">First page</button>
         </div>
     </div>
 </ng-template>

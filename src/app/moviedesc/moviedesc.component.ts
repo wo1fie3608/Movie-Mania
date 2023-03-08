@@ -11,15 +11,20 @@ export class MoviedescComponent {
   movieid: string = "";
   apidata: any;
   dataloaded: string = 'no';
+  bookmarked: boolean = false;
   constructor(private route: ActivatedRoute, private dataService: ManiDataService, private titleService: Title) {
     this.route.queryParams.subscribe(params => {
       this.dataloaded = 'no';
       this.movieid = params['movieid'];
       this.dataService.searchByIndex(this.movieid).subscribe((data: any) => {
-        this.dataloaded = 'yes';
+        setTimeout(() => {
+          this.dataloaded = 'yes';
+        }, 200);
+        
         this.apidata = this.dataService.setMovieDetailForClient(data);
         this.handleNA();
         this.titleService.setTitle(this.apidata.title);
+        this.bookmarked=this.movieid in localStorage;
       });
     }
     )
@@ -36,6 +41,7 @@ export class MoviedescComponent {
   }
   bookmark() {
     localStorage.setItem(this.movieid, this.movieid);
+    this.bookmarked = true;
   }
 }
 

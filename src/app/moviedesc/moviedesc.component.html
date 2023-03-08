@@ -5,8 +5,8 @@
     <h1 class="title">{{apidata.title}}</h1>
     <br>
     <div id="center"> <img [src]="replaceImagePoster(apidata.poster)"> </div>
-    <div style="text-align: center; "><button style="height: 30px; width: 125px; cursor: pointer; "
-            (click)="bookmark()">bookmark</button></div>
+    <div style="text-align: center; "><button style="height: 30px; width: 125px; cursor: pointer;"
+            (click)="bookmark()" [disabled]="bookmarked">bookmark</button></div>
     <p><strong>Plot:</strong>{{apidata.plot}}</p>
     <hr>
     <p><strong>IMDB Rating:</strong>{{apidata.imdbRating}}</p>

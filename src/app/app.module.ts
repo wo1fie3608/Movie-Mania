@@ -13,6 +13,7 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { MoviesloaderComponent } from './moviesloader/moviesloader.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     MoviedescComponent,
     Page404Component,
     BookmarksComponent,
-    PaginationComponent
+    PaginationComponent,
+    MoviesloaderComponent
   ],
   imports: [
     BrowserModule,

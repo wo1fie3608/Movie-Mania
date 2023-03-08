@@ -10,6 +10,7 @@ import { Spinkit } from 'ng-http-loader';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  hero:any;
   title = 'Movie Mania';
   apidata:any;
   searchtxt:any='';
@@ -37,7 +38,7 @@ export class AppComponent {
     });
   }
 
-  navigate(text:any){
+  navigate(text:any){    
     text=text.replace(/\s+/g, ' ').trim();
     text=text.replace(/(^\w{1})|(\s+\w{1})/g, (letter:string) => letter.toUpperCase());
     this.router.navigate(["searchlist"],{queryParams:{search:text,page:'1'}});

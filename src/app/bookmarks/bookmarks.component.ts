@@ -13,8 +13,12 @@ export class BookmarksComponent {
   databookmark: any[] = [];
   bookmarksids: string[] = [];
   constructor(private service: ManiDataService, private router: ActivatedRoute) {
-    
+    // window.addEventListener('storage', this.storageChanged);
   }
+  // storageChanged(event:any) {
+  //   this.getids();
+  //   this.getDataForBookmarks();
+  // }
   ngOnInit(){
     this.getids();
     this.getDataForBookmarks();
@@ -54,7 +58,5 @@ export class BookmarksComponent {
     localStorage.removeItem(id);
     this.getids();
     this.getDataForBookmarks();
-
   }
-
 }

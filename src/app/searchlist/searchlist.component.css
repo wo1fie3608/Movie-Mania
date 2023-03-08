@@ -1,5 +1,6 @@
 
  
+
   img {
     width: 15%;
     float: left;
@@ -19,6 +20,20 @@
   }
   button{
     cursor: pointer;
+}
+#bookmarkbutton{
+  background-color: #b45d5d; 
+  width: fit-content;
+  color: black;
+}
+#bookmarkbutton:hover:enabled{
+  font-weight: bolder;
+}
+
+#bookmarkbutton:disabled{
+  cursor: not-allowed;
+  background-color: rgb(206, 207, 201); 
+  color: white;
 }
   .card {
   
