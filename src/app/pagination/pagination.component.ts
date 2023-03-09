@@ -8,7 +8,7 @@ import { Route } from '@angular/router';
 })
 export class PaginationComponent{
 
- pages: any[]= [];
+ pages: number[]= [];
  @Input() pagenumber = 0 ;
  @Input() nopages = 0;
  @Output("goToPage") goToPage:EventEmitter<any> = new EventEmitter();

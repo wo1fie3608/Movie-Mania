@@ -1,4 +1,4 @@
-<ng-container *ngIf="databookmark.length==0; else  bookmarksNotZero">
+<ng-container *ngIf="bookmarksData.length==0; else  bookmarksNotZero">
     <h1>OOPS</h1>
     <hr>
     <h2 style="text-align: center;">No Bookmarks available</h2>
@@ -8,13 +8,13 @@
         <div class="wrapper">
             <h1>Bookmarks</h1>
             <div class="layout__scroll">
-                <div *ngFor="let item of databookmark" class="card">
+                <div *ngFor="let item of bookmarksData" class="card">
                     <a routerLink="../movieresult" [queryParams]="{movieid:item.imdbId}"><img src="{{item.poster}}" /></a>
                     <div class="card-content">
                         <h4>{{item.title}}</h4>
                         <p>{{item.plot}}</p>
                         <hr>
-                        <button (click)="remove(item.imdbId)">Remove</button>
+                        <button (click)="removeBookmark(item.imdbId)">Remove</button>
                     </div>
                 </div>
             </div>

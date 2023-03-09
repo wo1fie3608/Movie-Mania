@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ManiDataService } from './mani-data.service';
+import { movieApiService } from './movieApi.service';
 
-describe('ManiDataService', () => {
-  let service: ManiDataService;
+describe('movieApiService', () => {
+  let service: movieApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ManiDataService);
+    service = TestBed.inject(movieApiService);
   });
 
   it('should be created', () => {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
-import { ManiDataService } from '../services/mani-data.service'
+import { movieApiService } from '../services/movieApi.service'
 import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-moviedesc',
@@ -10,38 +10,27 @@ import { Title } from '@angular/platform-browser';
 export class MoviedescComponent {
   movieid: string = "";
   apidata: any;
-  dataloaded: string = 'no';
-  bookmarked: boolean = false;
-  constructor(private route: ActivatedRoute, private dataService: ManiDataService, private titleService: Title) {
+  dataLoaded: boolean = false;
+  bookmarkStatus: boolean = false;
+  constructor(private route: ActivatedRoute, private dataService: movieApiService, private titleService: Title) {
     this.route.queryParams.subscribe(params => {
-      this.dataloaded = 'no';
+      this.dataLoaded = false;
       this.movieid = params['movieid'];
-      this.dataService.searchByIndex(this.movieid).subscribe((data: any) => {
-        setTimeout(() => {
-          this.dataloaded = 'yes';
-        }, 200);
-        
+      this.dataService.returnSearchByIndex(this.movieid).subscribe((data: any) => {
         this.apidata = this.dataService.setMovieDetailForClient(data);
-        this.handleNA();
         this.titleService.setTitle(this.apidata.title);
-        this.bookmarked=this.movieid in localStorage;
+        this.bookmarkStatus=this.movieid in localStorage;
+        setTimeout(() => {
+          this.dataLoaded=true;
+        }, 150);
+        
       });
     }
     )
   }
-  replaceImagePoster(url: any) {
-    if (url == "N/A") {
-      return 'https://us.123rf.com/450wm/pavelstasevich/pavelstasevich1811/pavelstasevich181101028/112815904-no-image-available-icon-flat-vector-illustration.jpg?ver=6'
-    }
-    else return url;
-  }
-  handleNA(){
-    if (this.apidata.plot == "N/A") this.apidata.plot = "Plot not available";
-    this.apidata.poster=this.replaceImagePoster(this.apidata.poster);
-  }
-  bookmark() {
+  addBookmark() {
     localStorage.setItem(this.movieid, this.movieid);
-    this.bookmarked = true;
+    this.bookmarkStatus = true;
   }
 }
 

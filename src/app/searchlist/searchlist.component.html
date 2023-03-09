@@ -1,34 +1,24 @@
-<ng-container *ngIf="checkifresponse=='empty';else loadedtemplate">
+<ng-container *ngIf="checkIfResponse=='empty';else loadedtemplate">
     <app-moviesloader count="25"></app-moviesloader>
 </ng-container>
 
 <ng-template #loadedtemplate>
-    <div *ngIf="checkifresponse=='yes'">
+    <div *ngIf="checkIfResponse=='yes'">
         <div class="w">
-            <div class="card" *ngFor="let item of apidata.results">
+            <div class="card" *ngFor="let item of apiData.results">
                 <img id="lists" style="cursor: pointer;" [routerLink]="'../movieresult'"
-                    [queryParams]="{'movieid':item.imdbId}" [src]="replaceimagePoster(item.poster)">
+                    [queryParams]="{'movieid':item.imdbId}" [src]="item.poster">
                 <h4>{{item.title}}</h4>
              
-                <h4><button  id="bookmarkbutton" [disabled]="bookmarkdata[item.imdbId]" (click)="bookmark(item.imdbId)" >Bookmark</button></h4>
+                <h4><button  id="bookmarkbutton" [disabled]="bookmarkData[item.imdbId]" (click)="bookmark(item.imdbId)" >Bookmark</button></h4>
             </div>
         </div>
-        <app-pagination [pagenumber]="pagenumber" [nopages]="nopages" (back)="back()" (next)="next()"
+        <app-pagination [pagenumber]="currentPageNumber" [nopages]="totalPages" (back)="back()" (next)="next()"
             (goToPage)="goToPage($event)"></app-pagination>
     </div>
-    <div *ngIf="checkifresponse=='no'">
-        <div *ngIf="pagenumber==1">
-            <h1>OOPS</h1>
+    <div *ngIf="checkIfResponse=='no'">
+        <h1>OOPS</h1>
             <hr>
             No Movies found with similar text Please try again
-        </div>
-        <div *ngIf="pagenumber!=1">
-            <h1>Please Go Back
-            </h1>
-            <hr>
-            End of Results
-            <hr>
-            Go to <button (click)="goToPage(1)">First page</button>
-        </div>
     </div>
 </ng-template>

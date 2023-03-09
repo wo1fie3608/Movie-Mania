@@ -1,19 +1,13 @@
-<!-- <a routerLink="home"> Home </a>
-<input type="text" #txt>
-<button (click)="navigate(txt.value)">Search</button> -->
-<!-- <img src="https://codetheweb.blog/assets/img/icon2.png"> -->
-<!-- <ngx-spinner type="ball-scale-multiple"></ngx-spinner> -->
-<!-- <ng-http-loader> </ng-http-loader> -->
-<form  (ngSubmit)="navigate(txt.value)">
+<form  (ngSubmit)="navigate(searchBarText.value)">
     <div id="navbar">      
             <div id="HB">     
-                <li><a routerLink="home" (click)="txt.value=''"> <span>Home</span> </a></li>  
-                <li><a routerLink="bookmark" (click)="txt.value=''"> <span>Bookmarks</span> </a></li>   
+                <li><a routerLink="home" (click)="searchBarText.value=''"> <span>Home</span> </a></li>  
+                <li><a routerLink="bookmark" (click)="searchBarText.value=''"> <span>Bookmarks</span> </a></li>   
             </div>
             <div id="search">
                 <span class="fa fa-search form-control-feedback"></span>
-                <li><input type="search" #txt placeholder="Search Movie"></li>
-                <li><a (click)="navigate(txt.value)">Search</a></li>
+                <li><input type="search" #searchBarText placeholder="Search Movie"></li>
+                <li><a (click)="navigate(searchBarText.value)">Search</a></li>
             </div>  
     </div>
 </form>
